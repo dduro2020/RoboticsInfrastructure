@@ -112,10 +112,12 @@ class DroneReset(Node):
         )
         self.get_logger().info('Quadrotor position set to its initial value')
         # Updating the aerostack state machine to LANDED
-        asyncio.run(self.call_state_event_service(
-            PlatformStateMachineEvent.LAND))
-        asyncio.run(self.call_state_event_service(
-            PlatformStateMachineEvent.LANDED))
+        print("HOLAAA")
+        await self.call_state_event_service(
+            PlatformStateMachineEvent.LAND)
+        await self.call_state_event_service(
+            PlatformStateMachineEvent.LANDED)
+        print("ADIOOOS")
         
         response.success = True
         return response

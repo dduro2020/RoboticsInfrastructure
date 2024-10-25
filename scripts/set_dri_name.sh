@@ -14,7 +14,9 @@ get_gpu_device() {
     # Get GPU information
     gpu_list=$(lspci -nn | grep VGA)
     echo "GPUs found:"
-    echo $gpu_list | sed 's/^/\t/'
+    echo "$gpu_list" | while IFS= read -r line; do
+        echo -e "\t$line"
+    done
 
     for vendor in "${priority[@]}"; do
         if [[ "$vendor" == "nvidia" ]]; then
@@ -30,10 +32,19 @@ get_gpu_device() {
         if [ -n "$gpu_info" ]; then
             bus=$(echo "$gpu_info" | cut -d' ' -f1)
             device=$(ls /sys/bus/pci/devices/0000:$bus/drm | grep card)
+
+            # Check if corresponding dri path exists
+            device_path="/dev/dri/$device"
+            if [ ! -e $device_path ]; then
+                echo "Warning: Skipping $device_path does not exist."
+                continue
+            fi
+
             if [ -n "$device" ]; then
                 # Set the DRI_NAME environment variable to the card name (e.g., card0, card1)
                 export DRI_NAME="$device"
                 export DRI_VENDOR="$vendor"
+
                 # Echo the selected vendor and DRI_NAME
                 echo "GPU selected:"
                 echo -e "\t$gpu_info"
@@ -59,6 +70,6 @@ get_gpu_device() {
 preferred_vendor="${1,,}"  # Convert to lowercase
 
 # Get the GPU device path based on priority and set DRI_NAME
-echo -e "\n--- set_dri_name.sh ---"
+echo -e "\n--- GPU acceleration info ---"
 get_gpu_device "$preferred_vendor"
-echo -e "-----------------------\n"
+echo -e "-----------------------------\n"

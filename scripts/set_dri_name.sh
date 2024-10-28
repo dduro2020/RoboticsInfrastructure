@@ -3,7 +3,7 @@
 # Function to get the GPU device path based on vendor priority
 get_gpu_device() {
     preferred_vendor=$1
-    # Default vendor priority: NVIDIA > Intel > others
+    # Default vendor priority: NVIDIA > Intel
     priority=(nvidia intel)
 
     # If a preferred vendor is provided, prioritize it
@@ -13,6 +13,10 @@ get_gpu_device() {
 
     # Get GPU information
     gpu_list=$(lspci -nn | grep VGA)
+    echo "GPUs found:"
+    echo "$gpu_list" | while IFS= read -r line; do
+        echo -e "\t$line"
+    done
 
     for vendor in "${priority[@]}"; do
         if [[ "$vendor" == "nvidia" ]]; then
@@ -28,13 +32,24 @@ get_gpu_device() {
         if [ -n "$gpu_info" ]; then
             bus=$(echo "$gpu_info" | cut -d' ' -f1)
             device=$(ls /sys/bus/pci/devices/0000:$bus/drm | grep card)
+
+            # Check if corresponding dri path exists
+            device_path="/dev/dri/$device"
+            if [ ! -e $device_path ]; then
+                echo "Warning: Skipping $device_path does not exist."
+                continue
+            fi
+
             if [ -n "$device" ]; then
                 # Set the DRI_NAME environment variable to the card name (e.g., card0, card1)
                 export DRI_NAME="$device"
                 export DRI_VENDOR="$vendor"
+
                 # Echo the selected vendor and DRI_NAME
-                echo "DRI_VENDOR: $DRI_VENDOR"
-                echo "DRI_NAME: $DRI_NAME"
+                echo "GPU selected:"
+                echo -e "\t$gpu_info"
+                echo -e "\tDRI_VENDOR: $DRI_VENDOR"
+                echo -e "\tDRI_NAME: $DRI_NAME"
                 return 0
             fi
         fi
@@ -42,10 +57,11 @@ get_gpu_device() {
 
 
     if [ -n "$preferred_vendor" ]; then
-        echo "Error: No GPU found for the vendor '$preferred_vendor'." >&2
+        echo "Warning: No GPU found for requested vendor '$preferred_vendor'"
     else
-        echo "Error: No GPU found" >&2
+        echo "Warning: No GPU found for valid vendors: '${priority[@]}'"
     fi
+    echo "Falling back to CPU-only mode"
 
     return 1
 }
@@ -54,4 +70,6 @@ get_gpu_device() {
 preferred_vendor="${1,,}"  # Convert to lowercase
 
 # Get the GPU device path based on priority and set DRI_NAME
+echo -e "\n--- GPU acceleration info ---"
 get_gpu_device "$preferred_vendor"
+echo -e "-----------------------------\n"

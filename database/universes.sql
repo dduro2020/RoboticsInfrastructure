@@ -42,15 +42,11 @@ ALTER TABLE public.universes OWNER TO "user-dev";
 --
 
 COPY public.universes (id, name, launch_file_path, ros_version, visualization, world) FROM stdin;
-1	autoparking_ros1	/opt/jderobot/Launchers/autoparking.launch	ROS1	gazebo_rae	gazebo
 2	basic_vacuum_cleaner_ros2	/opt/jderobot/Launchers/vacuum_cleaner.launch.py	ROS2	gazebo_rae	gazebo
-3	obstacle_avoidance_ros1	/opt/jderobot/Launchers/obstacle_avoidance_f1_headless.launch	ROS1	gazebo_rae	gazebo
 4	vacuum_cleaner_loc_ros2	/opt/jderobot/Launchers/vacuum_cleaner_loc.launch.py	ROS2	gazebo_rae	gazebo
 5	global_navigation_ros2	/opt/jderobot/Launchers/taxi_navigator.launch.py	ROS2	gazebo_rae	gazebo
-6	3d_reconstruction_ros1	/opt/jderobot/Launchers/3d_reconstruction_ros.launch	ROS1	gazebo_rae	gazebo
 7	rescue_people_ros2	/opt/jderobot/Launchers/world.json	ROS2	gazebo_rae	drones
 8	amazon_warehouse_ros2_world1	/opt/jderobot/Launchers/amazon_robot.launch.py	ROS2	gazebo_rae	gazebo
-9	follow_line_default_ros1	/opt/jderobot/Launchers/simple_line_follower_ros_headless_default.launch	ROS1	gazebo_rae	gazebo
 10	follow_line_default_ros2	/opt/jderobot/Launchers/simple_circuit.launch.py	ROS2	gazebo_rae	gazebo
 11	follow_line_montreal_ros2	/opt/jderobot/Launchers/montreal_circuit.launch.py	ROS2	gazebo_rae	gazebo
 12	follow_person_ros2	/opt/jderobot/Launchers/follow_person.launch.py	ROS2	gazebo_rae	gazebo

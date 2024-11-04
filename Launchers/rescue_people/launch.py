@@ -10,7 +10,7 @@ from subprocess import Popen, PIPE
 DRI_NAME = os.environ.get("DRI_NAME")
 DRI_PATH = os.path.join("/dev/dri", DRI_NAME) if DRI_NAME else None
 
-EXERCISE = "rescue_people_newmanager"
+EXERCISE = "rescue_people"
 TIMEOUT = 30
 MAX_ATTEMPT = 2
 

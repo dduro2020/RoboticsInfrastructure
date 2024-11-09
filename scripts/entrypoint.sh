@@ -40,7 +40,7 @@ else
     runserver=""
 fi
 
-runram="python3 RoboticsInfrastructure/manager/manager/manager.py 0.0.0.0 7163"
+runram="python3 RoboticsApplicationManager/manager/manager/manager.py 0.0.0.0 7163"
 root="cd /"
 
 # TEST LOGS

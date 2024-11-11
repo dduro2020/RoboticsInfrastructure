@@ -1,12 +1,13 @@
 #!/bin/bash
 
-usage="$(basename "$0") [-h] [--debug] [--logs] [--no-server]\n\n
+usage="$(basename "$0") [-h] [--debug] [--logs] [--no-server] [--server]\n\n
 
 optional arguments:\n
 \t  -h  show this help message and exit\n
 \t  --debug run bash inside RADI\n
 \t  --logs record logs and run RADI\n
-\t  --no-server run RADI without webserver"
+\t  --no-server run RADI without webserver
+\t  --server run RADI with webserver"
 
 debug=false
 log=false
@@ -25,6 +26,9 @@ while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
     ;;
   -ns | --no-server )
     webserver=false
+    ;;
+  -s | --server )
+    webserver=true
     ;;
 esac; shift; done
 if [[ "$1" == '--' ]]; then shift; fi

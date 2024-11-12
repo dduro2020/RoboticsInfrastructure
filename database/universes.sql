@@ -83,6 +83,7 @@ COPY public.universes (id, name, launch_file_path, ros_version, visualization, w
 25 	follow_line_montmelo_ack_ros2	/opt/jderobot/Launchers/montmelo_circuit_ackermann.launch.py	ROS2	gazebo_rae	gazebo
 26 	follow_line_montreal_ack_ros2	/opt/jderobot/Launchers/montreal_circuit_ackermann.launch.py	ROS2	gazebo_rae	gazebo
 27 	follow_line_default_ack_ros2	/opt/jderobot/Launchers/simple_circuit_ackermann.launch.py	ROS2	gazebo_rae	gazebo
+28	autoparking_simple_360_ackermann_ros2	/opt/jderobot/Launchers/prius_360_autoparking.launch.py	ROS2	gazebo_rae	gazebo
 \.
 
 

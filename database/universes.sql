@@ -64,14 +64,14 @@ COPY public.universes (id, name, launch_file_path, ros_version, visualization, w
 7 	Montreal Circuit	/opt/jderobot/Launchers/montreal_circuit.launch.py	ROS2	gazebo_rae	gazebo
 8	Follow Person	/opt/jderobot/Launchers/follow_person.launch.py	ROS2	gazebo_rae	gazebo
 9	Follow Person Teleop	/opt/jderobot/Launchers/follow_person_teleop.launch.py	ROS2	gazebo_rae	gazebo
-10	Autoparking Simple - In line	/opt/jderobot/Launchers/prius_autoparking.launch.py	ROS2	gazebo_rae	gazebo
+10	'Autoparking Simple - In line'	/opt/jderobot/Launchers/prius_autoparking.launch.py	ROS2	gazebo_rae	gazebo
 12	Obstacle Avoidance Default	/opt/jderobot/Launchers/simple_circuit_obstacles_followingcam.launch.py	ROS2	gazebo_rae	gazebo
 13 	City Large Followcam	/opt/jderobot/Launchers/taxi_navigator_followingcam.launch.py	ROS2	gazebo_rae	gazebo
 14 	3d Reconstruction	/opt/jderobot/Launchers/3d_reconstruction.launch.py	ROS2	gazebo_rae	gazebo
-15 	Autoparking Simple - In battery	/opt/jderobot/Launchers/prius_bateria.launch.py	ROS2	gazebo_rae	gazebo
-16 	Autoparking Gas Station - In line	/opt/jderobot/Launchers/gas_station_line_ackermann.launch.py	ROS2	gazebo_rae	gazebo
-17 	Autoparking Gas Station - In battery	/opt/jderobot/Launchers/gas_station_battery_ackermann.launch.py	ROS2	gazebo_rae	gazebo
-18 	Autoparking Gas Station - Parking Lot	/opt/jderobot/Launchers/gas_station_parking_ackermann.launch.py	ROS2	gazebo_rae	gazebo
+15 	'Autoparking Simple - In battery'	/opt/jderobot/Launchers/prius_bateria.launch.py	ROS2	gazebo_rae	gazebo
+16 	'Autoparking Gas Station - In line'	/opt/jderobot/Launchers/gas_station_line_ackermann.launch.py	ROS2	gazebo_rae	gazebo
+17 	'Autoparking Gas Station - In battery'	/opt/jderobot/Launchers/gas_station_battery_ackermann.launch.py	ROS2	gazebo_rae	gazebo
+18 	'Autoparking Gas Station - Parking lot'	/opt/jderobot/Launchers/gas_station_parking_ackermann.launch.py	ROS2	gazebo_rae	gazebo
 19 	Warehouse 1 Ackermann	/opt/jderobot/Launchers/small_warehouse_with_ackermann_logistic_robot.launch.py	ROS2	gazebo_rae	gazebo
 20 	Warehouse 2 Ackermann	/opt/jderobot/Launchers/pallet_warehouse_with_ackermann_logistic_robot.launch.py	ROS2	gazebo_rae	gazebo
 21 	Warehouse 2	/opt/jderobot/Launchers/pallet_warehouse.launch.py	ROS2	gazebo_rae	gazebo
@@ -81,7 +81,7 @@ COPY public.universes (id, name, launch_file_path, ros_version, visualization, w
 25 	Montmelo Ackermann Circuit	/opt/jderobot/Launchers/montmelo_circuit_ackermann.launch.py	ROS2	gazebo_rae	gazebo
 26 	Montreal Ackermann Circuit	/opt/jderobot/Launchers/montreal_circuit_ackermann.launch.py	ROS2	gazebo_rae	gazebo
 27 	Simple Ackermann Circuit	/opt/jderobot/Launchers/simple_circuit_ackermann.launch.py	ROS2	gazebo_rae	gazebo
-28	Autoparking Lidar Simple - In line		/opt/jderobot/Launchers/prius_360_autoparking.launch.py	ROS2	gazebo_rae	gazebo
+28	'Autoparking Lidar Simple - In line'		/opt/jderobot/Launchers/prius_360_autoparking.launch.py	ROS2	gazebo_rae	gazebo
 \.
 
 

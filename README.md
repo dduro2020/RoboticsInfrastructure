@@ -12,6 +12,8 @@ Robots and tools useful for us and not included in the official ROS or Gazebo pa
 
 ## How to add a new universe
 
+Go to the **database** branch.
+
 To create the entry in **database/universes.sql**. This can be achieved in 2 ways, changing it directly on the database or using Django Web Admin:
 
 1) Launch the docker as normal.

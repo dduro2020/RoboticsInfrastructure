@@ -3,8 +3,8 @@
 # Function to get the GPU device path based on vendor priority
 get_gpu_device() {
     preferred_vendor=$1
-    # Default vendor priority: NVIDIA > Intel
-    priority=(nvidia intel)
+    # Default vendor priority: NVIDIA > AMD > Intel
+    priority=(nvidia amd intel)
 
     # If a preferred vendor is provided, prioritize it
     if [ -n "$preferred_vendor" ]; then

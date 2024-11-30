@@ -58,6 +58,10 @@ else
     runserver=""
 fi
 
+if [ $webserver == true ]; then
+    runserver="python3 /RoboticsAcademy/manage.py runserver 0.0.0.0:7164"
+fi
+
 runram="python3 RoboticsApplicationManager/manager/manager/manager.py 0.0.0.0 7163"
 root="cd /"
 
